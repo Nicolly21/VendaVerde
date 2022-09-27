@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "AKs/hFE+U3/Tgo83MKaQL5Quc2TnOUZLynn0IcswVSwINjnc0giSBWnCaUZRXxxR9llLAA5ytEGwtnf39TuMdg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\n.de.oliveira.santos\\Desktop\\V\\VendaVerde\\VendaVerde\\VendaVerde.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\n.de.oliveira.santos\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.17.0\\microsoft.visualstudio.azure.containers.tools.targets.1.17.0.nupkg.sha512"
+  ],
+  "logs": []
+}
