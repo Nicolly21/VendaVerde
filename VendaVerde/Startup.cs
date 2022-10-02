@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using VendaVerde.Models.Interfaces;
+using VendaVerde.Models.Repositories;
 
 namespace VendaVerde
 {
@@ -23,6 +25,9 @@ namespace VendaVerde
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IProdutoRepository, MockProdutoRepository>();
+            services.AddScoped<ICategoriaRepository, MockCategoriaRepository>();
+
             services.AddControllersWithViews();
         }
 
@@ -50,7 +55,7 @@ namespace VendaVerde
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Produto}/{action=Index}/{id?}");
             });
         }
     }
