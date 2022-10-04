@@ -1,6 +1,4 @@
-﻿@model ProdutoListViewModel
-
-@{
+﻿@{
     ViewData["Title"] = "VendaVerde";
 }
 
@@ -14,7 +12,7 @@
                     <div class="col-md-12 ftco-animate text-center">
                         <h1 class="mb-2">Frutas &amp; Verduras</h1>
                         <h2 class="subheading mb-4">O melhor dos produtos naturais entregues na sua casa!</h2>
-                        <p><a href="#" class="btn btn-primary">Veja nossos produtos</a></p> @*Direcionar para compras*@
+                        <p><a class="btn btn-primary"  asp-area="" asp-controller="Produto" asp-action="Produtos">Veja nossos produtos</a></p>
                     </div>
 
                 </div>
@@ -29,7 +27,7 @@
                     <div class="col-sm-12 ftco-animate text-center">
                         <h1 class="mb-2">Produtos de Qualidade</h1>
                         <h2 class="subheading mb-4">Oferecemos Frutas &amp; Verduras 100% orgânicos</h2>
-                        <p><a href="#" class="btn btn-primary">Veja nossos produtos</a></p> @*Direcionar para compras*@
+                        <p><a class="btn btn-primary" asp-area="" asp-controller="Produto" asp-action="Produtos">Veja nossos produtos</a></p>
                     </div>
 
                 </div>

@@ -19,8 +19,12 @@ namespace VendaVerde.Controllers
             _produtoRepository = produtoRepository;
             _categoriaRepository = categoriaRepository;
         }
+        public IActionResult Index()
+        {
+            return View();
+        }
 
-        public ViewResult Index()
+        public IActionResult Produtos()
         {
             ProdutoListViewModel produtoListViewModel = new ProdutoListViewModel();
             produtoListViewModel.Produtos = _produtoRepository.AllProdutos;
@@ -29,10 +33,6 @@ namespace VendaVerde.Controllers
             return View(produtoListViewModel);
         }
 
-        //public IActionResult Index()
-        //{
-        //    return View();
-        //}
 
         public IActionResult Privacy()
         {
