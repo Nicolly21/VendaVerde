@@ -33,6 +33,15 @@ namespace VendaVerde.Controllers
             return View(produtoListViewModel);
         }
 
+        public IActionResult Detalhes(int id)
+        {
+            var produto = _produtoRepository.ObterProduto(id);
+
+            if (produto == null)
+                return NotFound();
+
+            return View(produto);
+        }
 
         public IActionResult Privacy()
         {
