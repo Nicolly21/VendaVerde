@@ -82,14 +82,19 @@
                         }
                     </div>
                 </div>
-                <p><a href="cart.html" class="btn btn-black py-3 px-5">Adicionar ao carrinho</a></p>
+                <p id="btnAddCart"><a href="cart.html" class="btn btn-black py-3 px-5">Adicionar ao carrinho</a></p>
             </div>
         </div>
     </div>
 </section>
 
-<script>
+<script type="text/javascript">
     var estoque = '@Model.InEstoque';
 
-    //Se não houver estoque, desabilitar botão de carrinho
+    $(document).ready(function () {
+
+        if (estoque == 'True') {
+            $("#btnAddCart").disabled == true;
+        }
+    });
 </script>
