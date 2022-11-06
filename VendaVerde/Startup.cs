@@ -32,6 +32,12 @@ namespace VendaVerde
             services.AddScoped<IProdutoRepository, ProdutoRepository>();
             services.AddScoped<ICategoriaRepository, CategoriaRepository>();
 
+            //Assim que usuário faz uma solicitação realiza uma chamada ao banco para verificar se existe algum carrinho de compras daquele usuário
+            services.AddScoped<Carrinho>(sp => Carrinho.GetCart(sp));
+
+            services.AddHttpContextAccessor();
+            services.AddSession();
+
             services.AddControllersWithViews();
         }
 
@@ -50,6 +56,7 @@ namespace VendaVerde
             //
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseSession();
 
             app.UseRouting();
 
