@@ -1,0 +1,13 @@
+﻿@model CarrinhoViewModel
+
+@if (Model.Carrinho.ItensCarrinho.Count > 0)
+{
+<li style="align-self: center;">
+    <a>
+        <span id="cart-status">
+            @Model.Carrinho.ItensCarrinho.Count
+        </span>
+        <span class="glyphicon glyphicon-shopping-cart"></span>
+    </a>
+</li>
+}

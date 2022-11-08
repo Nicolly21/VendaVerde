@@ -92,6 +92,7 @@
                     <li class="nav-item"><a href="about.html" class="nav-link">Sobre</a></li>
                     <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
                     <li class="nav-item cta cta-colored"><a asp-controller="Carrinho" asp-action="Index" class="nav-link"><span class="icon-shopping_cart"></span>Meu carrinho</a></li>
+                    @await Component.InvokeAsync("MenuCarrinho")
                 </ul>
             </div>
         </div>
