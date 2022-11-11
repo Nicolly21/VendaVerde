@@ -88,9 +88,9 @@
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active"><a asp-area="" asp-controller="Produto" asp-action="Index" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a asp-controller="Produto" asp-action="Produtos" class="nav-link">Produtos</a></li>
-                    <li class="nav-item"><a href="about.html" class="nav-link">Sobre</a></li>
-                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                    @await Component.InvokeAsync("MenuCategoria")
+                    @*<li class="nav-item"><a href="about.html" class="nav-link">Sobre</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>*@
                     <li class="nav-item cta cta-colored"><a asp-controller="Carrinho" asp-action="Index" class="nav-link"><span class="icon-shopping_cart"></span>Meu carrinho</a></li>
                     @await Component.InvokeAsync("MenuCarrinho")
                 </ul>

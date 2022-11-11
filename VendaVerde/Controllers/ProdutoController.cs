@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using VendaVerde.Models;
 using VendaVerde.Models.Interfaces;
 using VendaVerde.ViewModels;
@@ -24,13 +26,28 @@ namespace VendaVerde.Controllers
             return View();
         }
 
-        public IActionResult Produtos()
+        public IActionResult Produtos(string categoria)
         {
-            ProdutoListViewModel produtoListViewModel = new ProdutoListViewModel();
-            produtoListViewModel.Produtos = _produtoRepository.AllProdutos;
-            produtoListViewModel.CategoriaAtual = "Verduras";
+            IEnumerable<Produto> produtos;
+            string categoriaAtual;
 
-            return View(produtoListViewModel);
+            if (string.IsNullOrEmpty(categoria))
+            {
+                produtos = _produtoRepository.AllProdutos.OrderBy(p => p.ProdutoId);
+                categoriaAtual = "Todos os produtos";
+            }
+            else
+            {
+                produtos = _produtoRepository.AllProdutos.Where(p => p.Categoria.CategoriaNome == categoria)
+                    .OrderBy(p => p.ProdutoId);
+                categoriaAtual = _categoriaRepository.AllCategorias.FirstOrDefault(c => c.CategoriaNome == categoria)?.CategoriaNome;
+            }
+
+            return View(new ProdutoListViewModel
+            {
+                Produtos = produtos,
+                CategoriaAtual = categoriaAtual
+            });
         }
 
         public IActionResult Detalhes(int id)

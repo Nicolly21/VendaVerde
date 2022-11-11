@@ -27,7 +27,7 @@
                     <div class="col-sm-12 ftco-animate text-center">
                         <h1 class="mb-2">Produtos de Qualidade</h1>
                         <h2 class="subheading mb-4">Oferecemos Frutas &amp; Verduras 100% orgânicos</h2>
-                        <p><a class="btn btn-primary" asp-area="" asp-controller="Produto" asp-action="Produtos">Veja nossos produtos</a></p>
+                        <p><a class="btn btn-primary" asp-area="" asp-controller="Produto" asp-action="Produtos" asp-route-categoria="">Veja nossos produtos</a></p>
                     </div>
 
                 </div>
@@ -97,19 +97,19 @@
                             <div class="text text-center">
                                 <h2>Categorias</h2>
                                 <p>Veja nossos produtos por categoria</p>
-                                <p><a asp-controller="Produto" asp-action="Produtos" class="btn btn-primary">Todos os produtos</a></p>
+                                <p><a asp-controller="Produto" asp-action="Produtos" asp-route-categoria="" class="btn btn-primary">Todos os produtos</a></p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" style="background-image: url(images/category-1.jpg);">
                             <div class="text px-3 py-1">
-                                <h2 class="mb-0"><a href="#">Verduras</a></h2>
+                                <h2 class="mb-0"><a asp-controller="Produto" asp-action="Produtos" asp-route-categoria="Verduras">Verduras</a></h2>
                             </div>
                         </div>
                         <div class="category-wrap ftco-animate img d-flex align-items-end" style="background-image: url(images/category-2.jpg);">
                             <div class="text px-3 py-1">
-                                <h2 class="mb-0"><a href="#">Frutas</a></h2>
+                                <h2 class="mb-0"><a asp-controller="Produto" asp-action="Produtos" asp-route-categoria="Frutas">Frutas</a></h2>
                             </div>
                         </div>
                     </div>
@@ -119,12 +119,12 @@
             <div class="col-md-4">
                 <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" style="background-image: url(images/raizes.png);">
                     <div class="text px-3 py-1">
-                        <h2 class="mb-0"><a href="#">Raízes</a></h2> 
+                        <h2 class="mb-0"><a asp-controller="Produto" asp-action="Produtos" asp-route-categoria="Raízes">Raízes</a></h2> 
                     </div>
                 </div>
                 <div class="category-wrap ftco-animate img d-flex align-items-end" style="background-image: url(images/category-4.jpg);">
                     <div class="text px-3 py-1">
-                        <h2 class="mb-0"><a href="#">Grãos</a></h2>
+                        <h2 class="mb-0"><a asp-controller="Produto" asp-action="Produtos" asp-route-categoria="Grãos">Grãos</a></h2>
                     </div>
                 </div>
             </div>

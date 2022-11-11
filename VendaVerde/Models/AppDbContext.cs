@@ -13,6 +13,8 @@ namespace VendaVerde.Models
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<ItemCarrinho> ItensCarrinho { get; set; }
+        public DbSet<Pedido> Pedidos { get; set; }
+        public DbSet<DetalhePedido> DetalhePedidos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -22,6 +24,7 @@ namespace VendaVerde.Models
             modelBuilder.Entity<Categoria>().HasData(new Categoria { CategoriaID = 1, CategoriaNome = "Frutas", Descricao = "Frutas de qualidade" });
             modelBuilder.Entity<Categoria>().HasData(new Categoria { CategoriaID = 2, CategoriaNome = "Verduras", Descricao = "Verduras Saborosas" });
             modelBuilder.Entity<Categoria>().HasData(new Categoria { CategoriaID = 3, CategoriaNome = "Grãos", Descricao = "Grãos Saudáveis" });
+            modelBuilder.Entity<Categoria>().HasData(new Categoria { CategoriaID = 4, CategoriaNome = "Raízes", Descricao = "Raízes fortes e nutritivas" });
 
             //Alimentando a Tabela Produto
             modelBuilder.Entity<Produto>().HasData(new Produto
@@ -74,6 +77,32 @@ namespace VendaVerde.Models
                 Descricao = "Maçã docinho",
                 MaisInfo = "Maça importado",
                 CategoriaID = 1,
+                ImagemUrl = "https://gillcleerenpluralsight.blob.core.windows.net/files/cheesecake.jpg",
+                InEstoque = true,
+                IsProdutoSemana = false,
+                ThumbnailUrl = "https://gillcleerenpluralsight.blob.core.windows.net/files/cheesecakesmall.jpg"
+            });
+            modelBuilder.Entity<Produto>().HasData(new Produto
+            {
+                ProdutoId = 5,
+                Nome = "Soja",
+                Preco = 3.40M,
+                Descricao = "1kg",
+                MaisInfo = "Soja nacional",
+                CategoriaID = 3,
+                ImagemUrl = "https://gillcleerenpluralsight.blob.core.windows.net/files/cheesecake.jpg",
+                InEstoque = true,
+                IsProdutoSemana = false,
+                ThumbnailUrl = "https://gillcleerenpluralsight.blob.core.windows.net/files/cheesecakesmall.jpg"
+            });
+            modelBuilder.Entity<Produto>().HasData(new Produto
+            {
+                ProdutoId = 6,
+                Nome = "Macaxeira",
+                Preco = 5.50M,
+                Descricao = "1kg",
+                MaisInfo = "Macaxeira/Mandioca",
+                CategoriaID = 4,
                 ImagemUrl = "https://gillcleerenpluralsight.blob.core.windows.net/files/cheesecake.jpg",
                 InEstoque = true,
                 IsProdutoSemana = false,

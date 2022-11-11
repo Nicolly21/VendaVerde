@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VendaVerde.Models;
 
 namespace VendaVerde.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221109051047_NovasCaregorias")]
+    partial class NovasCaregorias
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -63,34 +65,6 @@ namespace VendaVerde.Migrations
                         });
                 });
 
-            modelBuilder.Entity("VendaVerde.Models.DetalhePedido", b =>
-                {
-                    b.Property<int>("DetalhePedidoId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("PedidoId")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Preco")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("ProdutoId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Quantidade")
-                        .HasColumnType("int");
-
-                    b.HasKey("DetalhePedidoId");
-
-                    b.HasIndex("PedidoId");
-
-                    b.HasIndex("ProdutoId");
-
-                    b.ToTable("DetalhePedidos");
-                });
-
             modelBuilder.Entity("VendaVerde.Models.ItemCarrinho", b =>
                 {
                     b.Property<int>("ItemCarrinhoId")
@@ -112,54 +86,6 @@ namespace VendaVerde.Migrations
                     b.HasIndex("ProdutoId");
 
                     b.ToTable("ItensCarrinho");
-                });
-
-            modelBuilder.Entity("VendaVerde.Models.Pedido", b =>
-                {
-                    b.Property<int>("PedidoId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Cep")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Cidade")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Complemento")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("DataPedido")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Endereco")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Estado")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Nome")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Pais")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Sobrenome")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Telefone")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TotalPedido")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("PedidoId");
-
-                    b.ToTable("Pedidos");
                 });
 
             modelBuilder.Entity("VendaVerde.Models.Produto", b =>
@@ -284,21 +210,6 @@ namespace VendaVerde.Migrations
                             Preco = 5.50m,
                             ThumbnailUrl = "https://gillcleerenpluralsight.blob.core.windows.net/files/cheesecakesmall.jpg"
                         });
-                });
-
-            modelBuilder.Entity("VendaVerde.Models.DetalhePedido", b =>
-                {
-                    b.HasOne("VendaVerde.Models.Pedido", "Pedido")
-                        .WithMany("DetalhePedidos")
-                        .HasForeignKey("PedidoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("VendaVerde.Models.Produto", "Produto")
-                        .WithMany()
-                        .HasForeignKey("ProdutoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("VendaVerde.Models.ItemCarrinho", b =>

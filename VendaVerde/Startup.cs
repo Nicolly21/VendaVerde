@@ -31,6 +31,7 @@ namespace VendaVerde
 
             services.AddScoped<IProdutoRepository, ProdutoRepository>();
             services.AddScoped<ICategoriaRepository, CategoriaRepository>();
+            services.AddScoped<IPedidoRepository, PedidoRepository>();
 
             //Assim que usuário faz uma solicitação realiza uma chamada ao banco para verificar se existe algum carrinho de compras daquele usuário
             services.AddScoped<Carrinho>(sp => Carrinho.GetCart(sp));
