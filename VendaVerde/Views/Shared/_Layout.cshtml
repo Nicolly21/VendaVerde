@@ -89,9 +89,8 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active"><a asp-area="" asp-controller="Produto" asp-action="Index" class="nav-link">Home</a></li>
                     @await Component.InvokeAsync("MenuCategoria")
-                    @*<li class="nav-item"><a href="about.html" class="nav-link">Sobre</a></li>
-                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>*@
                     @await Component.InvokeAsync("MenuCarrinho")
+                    <partial name="_LoginPartial"/>
                 </ul>
             </div>
         </div>
