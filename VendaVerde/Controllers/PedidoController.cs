@@ -23,5 +23,32 @@ namespace VendaVerde.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public IActionResult Checkout(Pedido pedido)
+        {
+            var itens = _carrinho.GetShoppingCartItems();
+            _carrinho.ItensCarrinho = itens;
+
+            if (_carrinho.ItensCarrinho.Count == 0){
+                ModelState.AddModelError("", "Seu carrinho está vazio, fique a vontade para conhecer nossos produtos em catálogo");
+            }
+
+            if (ModelState.IsValid)
+            {
+                _pedidoRepository.CriarPedido(pedido);
+                _carrinho.ClearCart();
+                return RedirectToAction("CheckoutComplete");
+            }
+
+            return View(pedido);
+        }
+
+        public IActionResult CheckoutComplete()
+        {
+            ViewBag.CheckoutCompleteMessage = "Obrigado pela sua compra, seus produtos em breve chegará em sua casa!";
+
+            return View();
+        }
     }
 }

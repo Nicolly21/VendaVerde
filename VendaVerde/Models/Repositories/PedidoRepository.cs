@@ -21,22 +21,23 @@ namespace VendaVerde.Models.Repositories
         {
             pedido.DataPedido = DateTime.Now;
 
-            _appDbContext.Pedidos.Add(pedido);
+            pedido.TotalPedido = _carrinho.GetShoppingCartTotal();
+
+            pedido.DetalhePedidos = new List<DetalhePedido>();
 
             var itensCarrinho = _carrinho.ItensCarrinho;
-
             foreach (var item in itensCarrinho)
             {
                 var detalhePedido = new DetalhePedido()
                 {
                     Quantidade = item.Quantidade,
                     ProdutoId = item.Produto.ProdutoId,
-                    PedidoId = pedido.PedidoId,
                     Preco = item.Produto.Preco
                 };
 
-                _appDbContext.DetalhePedidos.Add(detalhePedido);
+                pedido.DetalhePedidos.Add(detalhePedido);
             }
+            _appDbContext.Pedidos.Add(pedido);
 
             _appDbContext.SaveChanges();
         }

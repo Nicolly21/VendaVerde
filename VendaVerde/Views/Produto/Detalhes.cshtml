@@ -19,22 +19,7 @@
             </div>
             <div class="col-lg-6 product-details pl-md-5 ftco-animate">
                 <h3>@Model.Nome</h3>
-                @*<div class="rating d-flex">
-                    <p class="text-left mr-4">
-                        <a href="#" class="mr-2">5.0</a>
-                        <a href="#"><span class="ion-ios-star-outline"></span></a>
-                        <a href="#"><span class="ion-ios-star-outline"></span></a>
-                        <a href="#"><span class="ion-ios-star-outline"></span></a>
-                        <a href="#"><span class="ion-ios-star-outline"></span></a>
-                        <a href="#"><span class="ion-ios-star-outline"></span></a>
-                    </p>
-                    <p class="text-left mr-4">
-                        <a href="#" class="mr-2" style="color: #000;">100 <span style="color: #bbb;">Rating</span></a>
-                    </p>
-                    <p class="text-left">
-                        <a href="#" class="mr-2" style="color: #000;">500 <span style="color: #bbb;">Sold</span></a>
-                    </p>
-                </div>*@
+                
                 <p class="price"><span>R$ @Model.Preco</span></p>
                 <p>
                     @Model.Descricao
@@ -43,19 +28,7 @@
                     @Model.MaisInfo
                 </p>
                 <div class="row mt-4">
-                    @*<div class="col-md-6">
-                        <div class="form-group d-flex">
-                            <div class="select-wrap">
-                                <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                <select name="" id="" class="form-control">
-                                    <option value="">Small</option>
-                                    <option value="">Medium</option>
-                                    <option value="">Large</option>
-                                    <option value="">Extra Large</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>*@
+                    
                     <div class="w-100"></div>
                     <div class="input-group col-md-6 d-flex mb-3">
                         <span class="input-group-btn mr-2">
@@ -82,7 +55,7 @@
                         }
                     </div>
                 </div>
-                <p id="btnAddCart"><a href="cart.html" class="btn btn-black py-3 px-5">Adicionar ao carrinho</a></p>
+                <p><a asp-controller="Carrinho" asp-action="AddToShoppingCart" asp-route-produtoId="@Model.ProdutoId" id="btnAddCart" class="btn btn-black py-3 px-5">Adicionar ao carrinho</a></p>
             </div>
         </div>
     </div>
@@ -92,9 +65,9 @@
     var estoque = '@Model.InEstoque';
 
     $(document).ready(function () {
-
+        
         if (estoque == 'True') {
-            $("#btnAddCart").disabled == true;
+            $("#btnAddCart").attr("disabled", true);
         }
     });
 </script>

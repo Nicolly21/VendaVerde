@@ -1,13 +1,15 @@
 ﻿@model CarrinhoViewModel
 
-@if (Model.Carrinho.ItensCarrinho.Count > 0)
-{
-<li style="align-self: center;">
-    <a>
-        <span id="cart-status">
-            @Model.Carrinho.ItensCarrinho.Count
-        </span>
-        <span class="glyphicon glyphicon-shopping-cart"></span>
-    </a>
-</li>
-}
+    <li class="nav-item cta cta-colored">
+        <a asp-controller="Carrinho" asp-action="Index" class="nav-link">
+        <span class="icon-shopping_cart"></span>Meu carrinho
+
+        @if (Model.Carrinho.ItensCarrinho.Count > 0)
+        {
+            <span id="cart-status">
+                @Model.Carrinho.ItensCarrinho.Count
+            </span>
+            <span class="glyphicon glyphicon-shopping-cart"></span>
+        }
+        </a>
+    </li>

@@ -13,6 +13,18 @@
 
 <section class="ftco-section ftco-cart">
     <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10 mb-5 text-center">
+                <ul class="product-category">
+                    <li><a asp-controller="Produto" asp-action="Produtos" asp-route-categoria="">Todos</a></li>
+                    <li><a asp-controller="Produto" asp-action="Produtos" asp-route-categoria="Verduras">Verduras</a></li>
+                    <li><a asp-controller="Produto" asp-action="Produtos" asp-route-categoria="Frutas">Frutas</a></li>
+                    <li><a asp-controller="Produto" asp-action="Produtos" asp-route-categoria="Grãos">Grãos</a></li>
+                    <li><a asp-controller="Produto" asp-action="Produtos" asp-route-categoria="Raízes">Raízes</a></li>
+                </ul>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-md-12 ftco-animate">
                 <div class="cart-list">

@@ -91,7 +91,6 @@
                     @await Component.InvokeAsync("MenuCategoria")
                     @*<li class="nav-item"><a href="about.html" class="nav-link">Sobre</a></li>
                     <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>*@
-                    <li class="nav-item cta cta-colored"><a asp-controller="Carrinho" asp-action="Index" class="nav-link"><span class="icon-shopping_cart"></span>Meu carrinho</a></li>
                     @await Component.InvokeAsync("MenuCarrinho")
                 </ul>
             </div>
@@ -105,26 +104,7 @@
         </main>
     </div>
 
-    <section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
-        <div class="container py-4">
-            <div class="row d-flex justify-content-center py-5">
-                <div class="col-md-6">
-                    <h2 style="font-size: 22px;" class="mb-0">Quer ficar por dentro de todas as nossas novidades?</h2>
-                    <span>Nos informe seu e-mail para receber todas as nossas promoções e novidades</span>
-                </div>
-                <div class="col-md-6 d-flex align-items-center">
-                    <form action="#" class="subscribe-form">
-                        <div class="form-group d-flex">
-                            <input type="text" class="form-control" placeholder="Digite seu e-mail">
-                            <input type="submit" value="Enviar" class="submit px-3">
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="ftco-footer ftco-section">
+    <footer class="ftco-footer ftco-section bg-light">
         <div class="container">
             <div class="row">
                 <div class="mouse">
