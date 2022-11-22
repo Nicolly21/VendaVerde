@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using VendaVerde.Models;
 using VendaVerde.Models.Interfaces;
@@ -23,6 +25,10 @@ namespace VendaVerde.Controllers
         }
         public IActionResult Index()
         {
+            //FileStream imageFileStream = System.IO.File.OpenRead(path);
+
+            //var teste = _env.WebRootFileProvider.GetFileInfo("images/bg_1.jpg")?.CreateReadStream();
+
             return View();
         }
 

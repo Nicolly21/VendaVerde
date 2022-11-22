@@ -15,7 +15,7 @@ namespace VendaVerde.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.31")
+                .HasAnnotation("ProductVersion", "3.1.30")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -162,10 +162,12 @@ namespace VendaVerde.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(128)")
+                        .HasMaxLength(128);
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(128)")
+                        .HasMaxLength(128);
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -202,10 +204,12 @@ namespace VendaVerde.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(128)")
+                        .HasMaxLength(128);
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(128)")
+                        .HasMaxLength(128);
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -225,9 +229,6 @@ namespace VendaVerde.Migrations
                     b.Property<string>("CategoriaNome")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Descricao")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("CategoriaID");
 
                     b.ToTable("Categorias");
@@ -236,26 +237,22 @@ namespace VendaVerde.Migrations
                         new
                         {
                             CategoriaID = 1,
-                            CategoriaNome = "Frutas",
-                            Descricao = "Frutas de qualidade"
+                            CategoriaNome = "Frutas"
                         },
                         new
                         {
                             CategoriaID = 2,
-                            CategoriaNome = "Verduras",
-                            Descricao = "Verduras Saborosas"
+                            CategoriaNome = "Verduras"
                         },
                         new
                         {
                             CategoriaID = 3,
-                            CategoriaNome = "Grãos",
-                            Descricao = "Grãos Saudáveis"
+                            CategoriaNome = "Grãos"
                         },
                         new
                         {
                             CategoriaID = 4,
-                            CategoriaNome = "Raízes",
-                            Descricao = "Raízes fortes e nutritivas"
+                            CategoriaNome = "Raízes"
                         });
                 });
 
@@ -383,9 +380,6 @@ namespace VendaVerde.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("AlergiaInfo")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("CategoriaID")
                         .HasColumnType("int");
 
@@ -395,12 +389,6 @@ namespace VendaVerde.Migrations
                     b.Property<string>("ImagemUrl")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("InEstoque")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsProdutoSemana")
-                        .HasColumnType("bit");
-
                     b.Property<string>("MaisInfo")
                         .HasColumnType("nvarchar(max)");
 
@@ -409,9 +397,6 @@ namespace VendaVerde.Migrations
 
                     b.Property<decimal>("Preco")
                         .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("ThumbnailUrl")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ProdutoId");
 
@@ -424,79 +409,201 @@ namespace VendaVerde.Migrations
                         {
                             ProdutoId = 1,
                             CategoriaID = 1,
-                            Descricao = "Tomate vermelho e suculento",
-                            ImagemUrl = "https://gillcleerenpluralsight.blob.core.windows.net/files/strawberrypie.jpg",
-                            InEstoque = true,
-                            IsProdutoSemana = false,
-                            MaisInfo = "Tomate do tipo cereja",
-                            Nome = "Tomate",
-                            Preco = 5.50m,
-                            ThumbnailUrl = "https://gillcleerenpluralsight.blob.core.windows.net/files/strawberrypiesmall.jpg"
+                            Descricao = "1kg",
+                            ImagemUrl = "/images/product-5.jpg",
+                            MaisInfo = "Fonte de licopeno – um composto que ajuda em problemas como inflamação e coagulação do sangue, reduzindo o risco de derrames.",
+                            Nome = "Tomate Cereja",
+                            Preco = 8.50m
                         },
                         new
                         {
                             ProdutoId = 2,
                             CategoriaID = 2,
-                            Descricao = "Alface fresca e verdinha",
-                            ImagemUrl = "https://gillcleerenpluralsight.blob.core.windows.net/files/pumpkinpiesmall.jpg",
-                            InEstoque = true,
-                            IsProdutoSemana = false,
-                            MaisInfo = "Alface crespo",
+                            Descricao = "Unidade",
+                            ImagemUrl = "/images/product-13.jpg",
+                            MaisInfo = "Alface Americana",
                             Nome = "Alface",
-                            Preco = 2.20m,
-                            ThumbnailUrl = "https://gillcleerenpluralsight.blob.core.windows.net/files/pumpkinpiesmall.jpg"
+                            Preco = 2.00m
                         },
                         new
                         {
                             ProdutoId = 3,
-                            CategoriaID = 2,
-                            Descricao = "Cenoura laranjinha",
-                            ImagemUrl = "https://gillcleerenpluralsight.blob.core.windows.net/files/rhubarbpiesmall.jpg",
-                            InEstoque = true,
-                            IsProdutoSemana = false,
-                            MaisInfo = "Cenoura madura",
+                            CategoriaID = 4,
+                            Descricao = "1kg",
+                            ImagemUrl = "/images/product-7.jpg",
+                            MaisInfo = "Cenoura laranja tem substância antioxidante que faz bem para a pele e sistema imunológico",
                             Nome = "Cenoura",
-                            Preco = 3.70m,
-                            ThumbnailUrl = "https://gillcleerenpluralsight.blob.core.windows.net/files/rhubarbpiesmall.jpg"
+                            Preco = 3.75m
                         },
                         new
                         {
                             ProdutoId = 4,
                             CategoriaID = 1,
-                            Descricao = "Maçã docinho",
-                            ImagemUrl = "https://gillcleerenpluralsight.blob.core.windows.net/files/cheesecake.jpg",
-                            InEstoque = true,
-                            IsProdutoSemana = false,
-                            MaisInfo = "Maça importado",
+                            Descricao = "1kg",
+                            ImagemUrl = "/images/product-10.jpg",
+                            MaisInfo = "Ajuda a reduzir os níveis de colesterol no sangue. Além disso, os polifenóis em sua composição têm efeito antioxidante, ajudando a diminuir a pressão arterial.",
                             Nome = "Maçã",
-                            Preco = 1.10m,
-                            ThumbnailUrl = "https://gillcleerenpluralsight.blob.core.windows.net/files/cheesecakesmall.jpg"
+                            Preco = 4.80m
                         },
                         new
                         {
                             ProdutoId = 5,
                             CategoriaID = 3,
                             Descricao = "1kg",
-                            ImagemUrl = "https://gillcleerenpluralsight.blob.core.windows.net/files/cheesecake.jpg",
-                            InEstoque = true,
-                            IsProdutoSemana = false,
-                            MaisInfo = "Soja nacional",
+                            ImagemUrl = "/images/product-27.jpg",
+                            MaisInfo = "Rica em antioxidantes, que ajudam a proteger o organismo e prevenir algumas doenças crônicas, como o câncer.",
                             Nome = "Soja",
-                            Preco = 3.40m,
-                            ThumbnailUrl = "https://gillcleerenpluralsight.blob.core.windows.net/files/cheesecakesmall.jpg"
+                            Preco = 3.49m
                         },
                         new
                         {
                             ProdutoId = 6,
                             CategoriaID = 4,
                             Descricao = "1kg",
-                            ImagemUrl = "https://gillcleerenpluralsight.blob.core.windows.net/files/cheesecake.jpg",
-                            InEstoque = true,
-                            IsProdutoSemana = false,
-                            MaisInfo = "Macaxeira/Mandioca",
+                            ImagemUrl = "/images/product-15.jpg",
+                            MaisInfo = "Melhora o funcionamento do intestino, redução de inflamações e fortalecimento do sistema imune.",
                             Nome = "Macaxeira",
-                            Preco = 5.50m,
-                            ThumbnailUrl = "https://gillcleerenpluralsight.blob.core.windows.net/files/cheesecakesmall.jpg"
+                            Preco = 7.65m
+                        },
+                        new
+                        {
+                            ProdutoId = 7,
+                            CategoriaID = 2,
+                            Descricao = "1kg",
+                            ImagemUrl = "/images/product-3.jpg",
+                            MaisInfo = "Ajudam a controlar os níveis de glicemia e colesterol no sangue",
+                            Nome = "Ervilha",
+                            Preco = 3.50m
+                        },
+                        new
+                        {
+                            ProdutoId = 8,
+                            CategoriaID = 2,
+                            Descricao = "Unidade",
+                            ImagemUrl = "/images/product-4.jpg",
+                            MaisInfo = "Melhora a digestão, graças às fibras solúveis e reduzem os níveis de colesterol ruim.",
+                            Nome = "Repolho Inteiro",
+                            Preco = 5.00m
+                        },
+                        new
+                        {
+                            ProdutoId = 9,
+                            CategoriaID = 2,
+                            Descricao = "1kg",
+                            ImagemUrl = "/images/product-9.jpg",
+                            MaisInfo = "Possui propriedades antivirais, antifúngicas, antibacterianas, anti-inflamatórias, anticancerígenas, hipoglicemiantes e antioxidantes.",
+                            Nome = "Cebola",
+                            Preco = 4.25m
+                        },
+                        new
+                        {
+                            ProdutoId = 10,
+                            CategoriaID = 4,
+                            Descricao = "1kg",
+                            ImagemUrl = "/images/product-16.jpg",
+                            MaisInfo = "Possui fósforo, ferro, potássio e cálcio, que dão mais força à musculatura e aos ossos do corpo.",
+                            Nome = "Batata",
+                            Preco = 3.55m
+                        },
+                        new
+                        {
+                            ProdutoId = 11,
+                            CategoriaID = 1,
+                            Descricao = "1kg",
+                            ImagemUrl = "/images/product-2.jpg",
+                            MaisInfo = "Rica em vitamina C, potássio e compostos antioxidantes.",
+                            Nome = "Morango",
+                            Preco = 7.00m
+                        },
+                        new
+                        {
+                            ProdutoId = 12,
+                            CategoriaID = 1,
+                            Descricao = "Unidade",
+                            ImagemUrl = "/images/product-17.jpg",
+                            MaisInfo = "Rica em vitamina C, vitamina A, licopeno (responsável pela coloração da polpa vermelha) , sais minerais como cálcio, entre outros compostos que proporcionam benefícios como prevenção de câncer, estresse oxidativo, inflamação, entre outros.",
+                            Nome = "Melancia Inteira",
+                            Preco = 8.90m
+                        },
+                        new
+                        {
+                            ProdutoId = 13,
+                            CategoriaID = 1,
+                            Descricao = "12 unidades",
+                            ImagemUrl = "/images/product-18.jpg",
+                            MaisInfo = "Rica em potássio, um mineral importante para todas as nossas células, que regula os batimentos cardíacos e garante o funcionamento dos músculos e nervos do corpo todo, inclusive do coração.",
+                            Nome = "Banana",
+                            Preco = 4.30m
+                        },
+                        new
+                        {
+                            ProdutoId = 14,
+                            CategoriaID = 3,
+                            Descricao = "1kg",
+                            ImagemUrl = "/images/product-23.jpg",
+                            MaisInfo = "Ricos em nutrientes importantes para a saúde, como vitaminas do complexo B, ferro, zinco, magnésio, fósforo, proteínas, carboidratos, fibras, além de antioxidantes",
+                            Nome = "Granola",
+                            Preco = 5.00m
+                        },
+                        new
+                        {
+                            ProdutoId = 15,
+                            CategoriaID = 3,
+                            Descricao = "1kg",
+                            ImagemUrl = "/images/product-24.jpg",
+                            MaisInfo = "Ajuda a controlar os níveis de açúcar no sangue, o que ativa o metabolismo, auxiliando na perda de gordura.",
+                            Nome = "Amendoim",
+                            Preco = 7.45m
+                        },
+                        new
+                        {
+                            ProdutoId = 16,
+                            CategoriaID = 3,
+                            Descricao = "1kg",
+                            ImagemUrl = "/images/product-25.jpg",
+                            MaisInfo = "Rica em gorduras saudáveis, vitaminas, proteínas e minerais, que ajuda a manter a saúde intestinal, facilita o ganho de massa muscular e fortalece os ossos, além de outros benefícios.",
+                            Nome = "Chia",
+                            Preco = 7.49m
+                        },
+                        new
+                        {
+                            ProdutoId = 17,
+                            CategoriaID = 1,
+                            Descricao = "Unidade",
+                            ImagemUrl = "/images/product-19.jpg",
+                            MaisInfo = "Prevenção e combate contra o câncer e suporte ao sistema imunológico",
+                            Nome = "Maracujá",
+                            Preco = 1.00m
+                        },
+                        new
+                        {
+                            ProdutoId = 18,
+                            CategoriaID = 4,
+                            Descricao = "Unidade",
+                            ImagemUrl = "/images/product-26.jpg",
+                            MaisInfo = "Rica em açúcar, proteínas, vitamina A, B1, B2, B5, C, potássio, sódio, fósforo, cálcio, zinco, ferro e manganês.",
+                            Nome = "Beterraba",
+                            Preco = 0.80m
+                        },
+                        new
+                        {
+                            ProdutoId = 19,
+                            CategoriaID = 2,
+                            Descricao = "Unidade",
+                            ImagemUrl = "/images/product-21.jpg",
+                            MaisInfo = "Rico em vitamina A, B1, B2, B3 e C, ele ainda conta com ácido fólico, que é um forte aliado do cérebro, faz bem ao coração, pele, unhas e cabelos, previne o câncer e melhora a imunidade.",
+                            Nome = "Coentro",
+                            Preco = 1.50m
+                        },
+                        new
+                        {
+                            ProdutoId = 20,
+                            CategoriaID = 2,
+                            Descricao = "Unidade",
+                            ImagemUrl = "/images/product-22.jpg",
+                            MaisInfo = "Fonte de vitaminas A e C, assim como o ferro. ",
+                            Nome = "Salsa",
+                            Preco = 3.00m
                         });
                 });
 

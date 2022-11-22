@@ -23,14 +23,7 @@ namespace VendaVerde.Models.Repositories
                 return _appDbContext.Produtos.Include(c => c.Categoria);
             }
         }
-        public IEnumerable<Produto> ProdutosDaSemana
-        {
-            get
-            {
-                return _appDbContext.Produtos.Include(c => c.Categoria).Where(s => s.IsProdutoSemana);
-            }
-        }
-
+        
         public Produto ObterProduto(int produtoID)
         {
             return _appDbContext.Produtos.FirstOrDefault(p => p.ProdutoId == produtoID);

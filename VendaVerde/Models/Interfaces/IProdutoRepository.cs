@@ -8,7 +8,6 @@ namespace VendaVerde.Models.Interfaces
     public interface IProdutoRepository
     {
         IEnumerable<Produto> AllProdutos { get; }
-        IEnumerable<Produto> ProdutosDaSemana { get; }
         Produto ObterProduto(int produtoID);
     }
 }
