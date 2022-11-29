@@ -25,10 +25,6 @@ namespace VendaVerde.Controllers
         }
         public IActionResult Index()
         {
-            //FileStream imageFileStream = System.IO.File.OpenRead(path);
-
-            //var teste = _env.WebRootFileProvider.GetFileInfo("images/bg_1.jpg")?.CreateReadStream();
-
             return View();
         }
 
@@ -64,11 +60,6 @@ namespace VendaVerde.Controllers
                 return NotFound();
 
             return View(produto);
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
